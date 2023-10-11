@@ -1,0 +1,43 @@
+
+#category-filter .category-button {
+    position: relative;
+    padding: 10px 25px 10px 45px;
+    border-radius: 30px;
+    margin: 10px 10px 10px 0;
+}
+
+#category-filter .category-button:focus {
+    outline:none !important;
+}
+
+#category-filter .category-button::before {
+    content: "+ ";
+    position: absolute;
+    font-weight: 600;
+    font-size: 160%;
+    top: -2%;
+    left: 17px;
+}
+
+#category-filter .all-categories {
+    padding: 10px 25px !important;
+}
+
+#category-filter .all-categories::before {
+    display: none !important;
+}
+
+#category-filter .selected {
+    color: white;
+    background-color: transparent;
+    border-color: white;
+}
+
+#category-filter .selected::before {
+    content: "\2713  ";
+    position: absolute;
+    font-weight: 600;
+    font-size: 120%;
+    top: 9%;
+    left: 17px;
+}

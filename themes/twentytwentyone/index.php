@@ -22,24 +22,22 @@ get_header(); ?>
 	</header><!-- .page-header -->
 <?php endif; ?>
 
+<div id="category-filter" class="default-max-width">
+	<p>Select one or more categories according to the content you want to see:</p>
+	<button id="all-categories" class="category-button all-categories selected" data-category="all">All</button>
+    <?php
+    $categories = get_categories();
+
+    foreach ($categories as $category) :
+    ?>
+    <button class="category-button" data-category="<?php echo esc_attr($category->slug); ?>"><?php echo esc_html($category->name); ?></button>
+    <?php endforeach; ?>
+</div>
+
+<div id="filtered-posts">
+	<!-- Filtered posts -->
+</div>
+
 <?php
-if ( have_posts() ) {
-
-	// Load posts loop.
-	while ( have_posts() ) {
-		the_post();
-
-		get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
-	}
-
-	// Previous/next page navigation.
-	twenty_twenty_one_the_posts_navigation();
-
-} else {
-
-	// If no content, include the "No posts found" template.
-	get_template_part( 'template-parts/content/content-none' );
-
-}
 
 get_footer();
